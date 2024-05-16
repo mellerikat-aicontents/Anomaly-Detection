@@ -69,7 +69,7 @@ asset_source:
     - train_pipeline:
         - step: input
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), local
+            code: https://github.com/meerkat-ai-contents/input.git # (str), local
             branch: v1.0.1_tabular
             requirements:
               - pandas==2.2.1
@@ -77,14 +77,14 @@ asset_source:
         
         - step: readiness
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/readiness.git # (str), git url | local
             branch: ad_dev
             requirements:
               - pandas==2.2.1
 
         - step: preprocess
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/preps.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/preprocess.git # (str), git url | local
             branch: v1.0.0_ad
             requirements:
               - pandas==2.2.1
@@ -92,7 +92,7 @@ asset_source:
 
         - step: train
           source: 
-            code: http://mod.lge.com/hub/dxadvtech/assets/pad.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/ad_modeling.git # (str), git url | local
             branch: pad_v2.0.2
             requirements:
               - pandas==2.2.1
@@ -102,21 +102,21 @@ asset_source:
     - inference_pipeline:
         - step: input
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/input.git # (str), git url | local
             branch: v1.0.1_tabular
             requirements:
               - pandas==2.2.1
 
         - step: readiness
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/readiness.git # (str), git url | local
             branch: ad_dev
             requirements:
               - pandas==2.2.1
 
         - step: preprocess
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/preps.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/preprocess.git # (str), git url | local
             branch: v1.0.0_ad
             requirements:
               - pandas==2.2.1
@@ -124,7 +124,7 @@ asset_source:
 
         - step: inference
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/pad.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/ad_modeling.git # (str), git url | local
             branch: pad_v2.0.2
             requirements:
               - pandas==2.2.1
@@ -132,7 +132,7 @@ asset_source:
 
         - step: output
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/output.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/output.git # (str), git url | local
             branch: output_1.0
             requirements:
               - pillow
