@@ -1,0 +1,169 @@
+name : AD
+version: 2.0.1
+
+external_path:
+    - load_train_data_path: ./solution/sample_data/train/
+    - load_inference_data_path: ./solution/sample_data/test/
+    - save_train_artifacts_path:
+    - save_inference_artifacts_path:
+    - load_model_path: 
+
+
+external_path_permission:
+    - aws_key_profile:
+
+user_parameters:
+    - train_pipeline:
+        - step: input  
+          args:
+            - file_type: csv   
+              encoding: utf-8  
+
+        - step: readiness 
+          args:
+            - x_columns: ['sensor_50','sensor_04', 'sensor_51', 'sensor_48']
+              groupkey: # (list), if groupkey column exists
+              time_column: timestamp
+          ui_args:
+            - x_columns
+            - time_column
+
+        - step: preprocess
+          args:
+            - handling_missing: drop # (str), drop(default) | frequent | mean | median | fill_n | interpolation
+              handling_scaling_x: none # (str), none(default) | standard | minmax | maxabs | robust | normalizer
+              drop_duplicate_time: True # (bool), True(default) | False  
+              
+        - step: train
+          args:
+            - train_models: [dt,sr,stl_dt,stl_sr] # (list)), [dt,sr,stl_dt,stl_sr](default) 
+              decision_rule: two # (str), two(default) | uppper | lower
+              hpo_repeat: 20 # (int), hpo_repeat >= 0 
+              return_all: True # (bool), True(default) | False
+              objective_cal_metric: distance # (str), distance(default)
+
+    - inference_pipeline:
+        - step: input 
+          args:
+            - file_type: csv   
+              encoding: utf-8  
+
+        - step: readiness 
+          args:              
+
+        - step: preprocess
+          args:
+            - handling_missing: drop # (str), drop(default) | frequent | mean | median | fill_n | interpolation
+              handling_scaling_x: none # (str), none(default) | standard | minmax | maxabs | robust | normalizer  
+              drop_duplicate_time: True # (bool), True(default) | False    
+              
+        - step: inference
+          args:
+            - model_select: all # (str), all(default) | best 
+
+        - step: output
+          args:
+            - none:
+
+asset_source:
+    - train_pipeline:
+        - step: input
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), local
+            branch: v1.0.1_tabular
+            requirements:
+              - pandas==2.2.1
+              - tqdm
+        
+        - step: readiness
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git # (str), git url | local
+            branch: ad_dev
+            requirements:
+              - pandas==2.2.1
+
+        - step: preprocess
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/preps.git # (str), git url | local
+            branch: v1.0.0_ad
+            requirements:
+              - pandas==2.2.1
+              - category_encoders
+
+        - step: train
+          source: 
+            code: http://mod.lge.com/hub/dxadvtech/assets/pad.git # (str), git url | local
+            branch: pad_v2.0.2
+            requirements:
+              - pandas==2.2.1
+              - requirements.txt
+              - numba
+
+    - inference_pipeline:
+        - step: input
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), git url | local
+            branch: v1.0.1_tabular
+            requirements:
+              - pandas==2.2.1
+
+        - step: readiness
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git # (str), git url | local
+            branch: ad_dev
+            requirements:
+              - pandas==2.2.1
+
+        - step: preprocess
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/preps.git # (str), git url | local
+            branch: v1.0.0_ad
+            requirements:
+              - pandas==2.2.1
+              - category_encoders
+
+        - step: inference
+          source:  
+            code: http://mod.lge.com/hub/dxadvtech/assets/pad.git # (str), git url | local
+            branch: pad_v2.0.2
+            requirements:
+              - pandas==2.2.1
+              - requirements.txt
+
+        - step: output
+          source:
+            code: http://mod.lge.com/hub/dxadvtech/assets/output.git # (str), git url | local
+            branch: output_1.0
+            requirements:
+              - pillow
+
+control:
+  - get_asset_source: every # (str), once | every(default)
+  - backup_artifacts: True # (bool), True(default) | False
+  - backup_log: True # (bool), True(default) | False
+  - backup_size: 1000 # (int), 1000(default) <= args < 10000
+  - interface_mode: memory # (str), memory(default) | file
+    ## 5. asset data, config interfacing method - memory: (fast) / file: (saved; non-volatilizing)
+  # - save_inference_format: tar.gz ## tar.gz, zip
+  #   ## 7. resource check
+  # - check_resource: False ## True: measure memory, cpu / False
+  
+ui_args_detail:
+    - train_pipeline:
+        - step: readiness
+          args:
+              - name: x_columns
+                description: 분석에 필요한 x columns를 ','로 구분하여 기입합니다. ex) x_column1, x_column2
+                type: string
+                default: ''
+                range:
+                  - 1
+                  - 1000
+
+              - name: time_column
+                description: 이상탐지에 사용할 time column 명을 입력합니다.
+                type: string
+                default: ''
+                range:
+                  - 1
+                  - 1000
