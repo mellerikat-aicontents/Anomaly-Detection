@@ -4,8 +4,8 @@ Anomaly Detection is AI content that identifies abnormal patterns or outliers wi
 
 
 # User Guide
-- [Quick guide](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/)
-- [AD Features](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/features)
-- [AD Input and Artifacts](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/data)
-- [Parameter](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/parameter)
-- [Release note](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/release)
+- [Quick guide](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/)
+- [AD Features](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/features)
+- [AD Input and Artifacts](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/data)
+- [Parameter](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/parameter)
+- [Release note](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/ad/release)
