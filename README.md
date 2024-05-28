@@ -1,19 +1,11 @@
 # Welcome to AD !
 
-⚡ 단변량 시계열 데이터에 대해 각 point 별 anomaly detection을 할 수 있는 AI 컨텐츠입니다. ⚡
-
-[![Generic badge](https://img.shields.io/badge/release-v2.0.1-green.svg?style=for-the-badge)](http://링크)
-[![Generic badge](https://img.shields.io/badge/last_update-2024.05.10-002E5F?style=for-the-badge)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Generic badge](https://img.shields.io/badge/python-3.10-purple.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Generic badge](https://img.shields.io/badge/ALO-v2.3.4-green.svg?style=for-the-badge)](requirement링크)
-[![Generic badge](https://img.shields.io/badge/collab-blue.svg?style=for-the-badge)](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
-[![Generic badge](https://img.shields.io/badge/request_clm-green.svg?style=for-the-badge)](http://collab.lge.com/main/pages/viewpage.action?pageId=2157128981)
+Anomaly Detection is AI content that identifies abnormal patterns or outliers within data. It leverages statistical and machine learning techniques to automatically distinguish between normal and abnormal data ranges without the need for separate labeling. Anomaly Detection provides models for detecting point anomalies (PAD), which identify individual data points that deviate from the normal range; contextual anomalies (CAD, TBD), which identify abnormal patterns that deviate from the normal pattern; and multivariate anomalies (MAD, TBD), which comprehensively learn the relationships between multivariate data to detect abnormal points and patterns. This versatility allows Anomaly Detection to be applied to various data characteristics and objectives.
 
 
-# User Guide(collab)
+# User Guide
 - [Quick guide](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/)
-- [기능 설명](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/features)
-- [입력 데이터 및 산출물](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/data)
+- [AD Features](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/features)
+- [AD Input and Artifacts](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/data)
 - [Parameter](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/parameter)
 - [Release note](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/ad/release)
