@@ -1,5 +1,5 @@
 name : AD
-version: 2.0.1
+version: 2.0.2
 
 external_path:
     - load_train_data_path: ./solution/sample_data/train/
@@ -69,7 +69,7 @@ asset_source:
     - train_pipeline:
         - step: input
           source:  
-            code: https://github.com/meerkat-ai-contents/input.git # (str), local
+            code: https://github.com/mellerikat-aicontents/input.git # (str), local
             branch: v1.0.1_tabular
             requirements:
               - pandas==2.2.1
@@ -77,14 +77,14 @@ asset_source:
         
         - step: readiness
           source:  
-            code: https://github.com/meerkat-ai-contents/readiness.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/readiness.git # (str), git url | local
             branch: ad_dev
             requirements:
               - pandas==2.2.1
 
         - step: preprocess
           source:  
-            code: https://github.com/meerkat-ai-contents/preprocess.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/preprocess.git # (str), git url | local
             branch: v1.0.0_ad
             requirements:
               - pandas==2.2.1
@@ -92,7 +92,7 @@ asset_source:
 
         - step: train
           source: 
-            code: https://github.com/meerkat-ai-contents/ad_modeling.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/ad_modeling.git # (str), git url | local
             branch: pad_v2.0.2
             requirements:
               - pandas==2.2.1
@@ -102,21 +102,21 @@ asset_source:
     - inference_pipeline:
         - step: input
           source:  
-            code: https://github.com/meerkat-ai-contents/input.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/input.git # (str), git url | local
             branch: v1.0.1_tabular
             requirements:
               - pandas==2.2.1
 
         - step: readiness
           source:  
-            code: https://github.com/meerkat-ai-contents/readiness.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/readiness.git # (str), git url | local
             branch: ad_dev
             requirements:
               - pandas==2.2.1
 
         - step: preprocess
           source:  
-            code: https://github.com/meerkat-ai-contents/preprocess.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/preprocess.git # (str), git url | local
             branch: v1.0.0_ad
             requirements:
               - pandas==2.2.1
@@ -124,7 +124,7 @@ asset_source:
 
         - step: inference
           source:  
-            code: https://github.com/meerkat-ai-contents/ad_modeling.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/ad_modeling.git # (str), git url | local
             branch: pad_v2.0.2
             requirements:
               - pandas==2.2.1
@@ -132,8 +132,8 @@ asset_source:
 
         - step: output
           source:
-            code: https://github.com/meerkat-ai-contents/output.git # (str), git url | local
-            branch: output_1.0
+            code: https://github.com/mellerikat-aicontents/output.git # (str), git url | local
+            branch: v1.0.0
             requirements:
               - pillow
 
