@@ -1,5 +1,5 @@
 name : AD
-version: 2.0.2
+version: 2.0.3
 
 external_path:
     - load_train_data_path: ./solution/sample_data/train/
@@ -36,7 +36,7 @@ user_parameters:
               
         - step: train
           args:
-            - train_models: [dt,sr,stl_dt,stl_sr] # (list)), [dt,sr,stl_dt,stl_sr](default) 
+            - train_models: [dt,sr,stl_dt,stl_sr] # (list)), [dt,sr,stl_dt,stl_sr](default) | dt | sr | stl_dt | stl_sr
               decision_rule: two # (str), two(default) | uppper | lower
               hpo_repeat: 20 # (int), hpo_repeat >= 0 
               return_all: True # (bool), True(default) | False
@@ -93,7 +93,7 @@ asset_source:
         - step: train
           source: 
             code: https://github.com/mellerikat-aicontents/ad_modeling.git # (str), git url | local
-            branch: pad_v2.0.2
+            branch: pad_v2.1.0
             requirements:
               - pandas==2.2.1
               - requirements.txt
@@ -125,7 +125,7 @@ asset_source:
         - step: inference
           source:  
             code: https://github.com/mellerikat-aicontents/ad_modeling.git # (str), git url | local
-            branch: pad_v2.0.2
+            branch: pad_v2.1.0
             requirements:
               - pandas==2.2.1
               - requirements.txt
